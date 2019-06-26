@@ -14,10 +14,12 @@ public class Exceltestng {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		FileInputStream file=new FileInputStream("Sid.xlsx");
-		XSSFWorkbook Wrkbk=new XSSFWorkbook(file);
-		Sheet ShtNme=Sheetnme(Wrkbk);
-		ClmnHdr(ShtNme,"name");
+		//FileInputStream file=new FileInputStream("Sid.xlsx");
+		//XSSFWorkbook Wrkbk=new XSSFWorkbook(file);
+	//	Sheet ShtNme=Sheetnme(Wrkbk);
+		//ClmnHdr(ShtNme,"name");
+		DataDriven D=new DataDriven();
+		D.getdata();
 	}
 	//to Get specific sheet
 			public static Sheet Sheetnme(XSSFWorkbook Wrkbk)
