@@ -29,7 +29,7 @@ public class DataDriven {
 	ArrayList Rowvlue= Rwvlue(HeadrNme,TestCase,"Test Desc");
 	for(Object s:Rowvlue)
 	{
-		//System.out.println(s);
+		System.out.println(s);
 	}
 	}
 	
