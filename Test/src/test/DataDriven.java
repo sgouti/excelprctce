@@ -18,7 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataDriven {
 	
-	public void getdata() throws IOException
+	public  void getdata() throws IOException
 	{
 	FileInputStream file=new FileInputStream("Sid.xls");
 	HSSFWorkbook Wrkbk=new HSSFWorkbook(file);
@@ -26,13 +26,12 @@ public class DataDriven {
 	ArrayList HeadrNme= Headersvlue(TestCase);
 	
 	System.out.println("Column Number "+Hdrcnt(HeadrNme,"TC Id"));
-	ArrayList Rowvlue= Rwvlue(HeadrNme,TestCase,"TC Id");
+	ArrayList Rowvlue= Rwvlue(HeadrNme,TestCase,"Test Desc");
 	for(Object s:Rowvlue)
 	{
 		System.out.println(s);
 	}
 	}
-	
 	
 	public static Sheet Sheetnme(HSSFWorkbook Wrkbk,String Sheetname)
 	{	Sheet sheetName=null;
@@ -121,4 +120,10 @@ public class DataDriven {
 	return RowVlue;
 		
 	}
+
+public static void testcntrl(Sheet Shtnme)
+{
+	
+}
+
 }
