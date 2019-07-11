@@ -18,9 +18,9 @@ public class Exceltestng {
 		//XSSFWorkbook Wrkbk=new XSSFWorkbook(file);
 	//	Sheet ShtNme=Sheetnme(Wrkbk);
 		//ClmnHdr(ShtNme,"name");
-		DataDriven D=new DataDriven();
-		//D.getdata();
-		D.ExecutableTStCntrl("TestCntrl");
+	//	DataDriven D=new DataDriven();
+	//	D.getdata();
+		DataDriven.ExecutableTStCntrl("TestCntrl");
 	}
 	//to Get specific sheet
 			public static Sheet Sheetnme(XSSFWorkbook Wrkbk)
