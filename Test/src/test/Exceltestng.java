@@ -19,7 +19,8 @@ public class Exceltestng {
 	//	Sheet ShtNme=Sheetnme(Wrkbk);
 		//ClmnHdr(ShtNme,"name");
 		DataDriven D=new DataDriven();
-		D.getdata();
+		//D.getdata();
+		D.ExecutableTStCntrl("TestCntrl");
 	}
 	//to Get specific sheet
 			public static Sheet Sheetnme(XSSFWorkbook Wrkbk)
