@@ -3,6 +3,10 @@ package test;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 public class Test_class {
 
 	public static void main(String[] args) 
@@ -47,7 +51,15 @@ System.out.print(fibonacci(i) + " ");
 		 System.out.println(path);
 		
 		
-		
+		ExtentReports Extnt=new ExtentReports("Report.html");
+		ExtentTest Test;
+		Test=Extnt.startTest("String test");
+		Test.log(LogStatus.PASS, "Passed");
+		Test.log(LogStatus.PASS, "failed");
+		Test.log(LogStatus.INFO, "Information");
+		Test.log(LogStatus.PASS, "Descr");
+		Extnt.endTest(Test);
+		Extnt.flush();
 		
 		
 		
