@@ -3,6 +3,7 @@ package test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -12,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Exceltestng {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		//FileInputStream file=new FileInputStream("Sid.xlsx");
 		//XSSFWorkbook Wrkbk=new XSSFWorkbook(file);
@@ -20,6 +21,7 @@ public class Exceltestng {
 		//ClmnHdr(ShtNme,"name");
 	//	DataDriven D=new DataDriven();
 	//	D.getdata();
+		DataDriven.ExecutFnctn("fibonacci");
 		DataDriven.ExecutableTStCntrl("TestCntrl");
 	}
 	//to Get specific sheet

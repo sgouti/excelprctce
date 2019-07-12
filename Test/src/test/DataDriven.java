@@ -3,6 +3,8 @@ package test;
 import java.io.FileInputStream;
 //import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 //import java.util.List;
@@ -33,7 +35,7 @@ public class DataDriven {
 		Wrkbk.close();
 	}
 
-	public static void ExecutableTStCntrl(String Shtnme) {
+	public static void ExecutableTStCntrl(String Shtnme)  {
 		try {
 			
 			Sheet TestCntrlSheet = Sheetnme(Shtnme, "");
@@ -49,7 +51,7 @@ public class DataDriven {
 			//Use Testscript method
 			AfterSuit();
 			}
-			
+			//ExecutFnctn("fibonacci");
 			
 
 		} catch (IOException e) {
@@ -88,12 +90,30 @@ public class DataDriven {
 			String LogicalNme=CellData(KeywrdSheet,RowsNumbrs.get(i),GlobalV.ObjectLogicalName);
 			ReportLog.GetInstance().log(LogStatus.INFO,ActionKyrd,Description);
 			
+			
 		System.out.println((i+1)+" )  "+Description+" :: "+ActionKyrd+" :: " + LogicalNme);
 		}
 		
 	
 	}
-
+	public static void ExecutFnctn(String FunctNme) {
+		try {
+			Test_class cls=new Test_class();
+			Method[] m = cls.getClass().getDeclaredMethods();  
+	        for(int i=0;i<m.length;i++)
+	        {
+	        	if(m[i].getName().equalsIgnoreCase(FunctNme))
+	        	{
+	        		System.out.println(m[i].getName());
+	        	}
+	        }
+		
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erros are  "+e);
+		}
+		}
 	
 	
 	
