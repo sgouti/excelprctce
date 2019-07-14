@@ -20,8 +20,8 @@ public class Exceltestng {
 	//	Sheet ShtNme=Sheetnme(Wrkbk);
 		//ClmnHdr(ShtNme,"name");
 	//	DataDriven D=new DataDriven();
-	//	D.getdata();
-		DataDriven.ExecutFnctn("fibonacci");
+	//	D.getdata();1
+	//	DataDriven.ExecutFnctn("Sid","");
 		DataDriven.ExecutableTStCntrl("TestCntrl");
 	}
 	//to Get specific sheet

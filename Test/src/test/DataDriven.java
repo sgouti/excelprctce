@@ -51,7 +51,7 @@ public class DataDriven {
 			//Use Testscript method
 			AfterSuit();
 			}
-			//ExecutFnctn("fibonacci");
+			
 			
 
 		} catch (IOException e) {
@@ -70,6 +70,7 @@ public class DataDriven {
 		{
 			ExecutableFnNme.add(CellData(TestCntrlSheet,RowsNumbrs.get(i),GlobalV.FunctionName));
 			String FunctionNme=CellData(TestCntrlSheet,RowsNumbrs.get(i),GlobalV.FunctionName);
+			System.out.println("Function Nme executing _" + FunctionNme);
 			Keyword(GlobalV.KeywordLibraryFilePath,FunctionNme);
 		}
 	System.out.println("FunctionNames"+ExecutableFnNme);
@@ -96,18 +97,22 @@ public class DataDriven {
 		
 	
 	}
-	public static void ExecutFnctn(String FunctNme) {
+	public static void ExecutFnctn(String FunctNme,String Para) {
 		try {
 			Test_class cls=new Test_class();
-			Method[] m = cls.getClass().getDeclaredMethods();  
-	        for(int i=0;i<m.length;i++)
-	        {
-	        	if(m[i].getName().equalsIgnoreCase(FunctNme))
-	        	{
-	        		System.out.println(m[i].getName());
-	        	}
-	        }
-		
+			
+			Method m;
+			Object Execute;
+			if(Para.isEmpty())
+			{
+				m= cls.getClass().getDeclaredMethod(FunctNme, null);  
+				Execute=m.invoke(cls, null);
+			
+			}else
+			{
+				m= cls.getClass().getDeclaredMethod(FunctNme, String.class);
+				Execute=m.invoke(cls, Para);
+			}
 		}
 		catch(Exception e)
 		{
