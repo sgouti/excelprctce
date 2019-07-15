@@ -120,8 +120,6 @@ public class DataDriven {
 		}
 		}
 	
-	
-	
 public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdRW,int TCsrptRw) throws IOException
 {
 	Sheet KywrdShnme= Sheetnme(Kywrdshnme, "");
@@ -149,14 +147,30 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 	return temp;
 }
 	
+	public static String pthlocator(String ObjctshtNme,String LogicNme) throws IOException
+	{	int LogicRwNmb;
+	String LocatorType=null;
+		Sheet ObjLbSheet=Sheetnme(ObjctshtNme, "");
+		if(!LogicNme.isEmpty()&&LogicNme!=null)
+		{
+			LogicRwNmb=	RowNumbr(ObjLbSheet,GlobalV.LogicalName,LogicNme);
+			 LocatorType=CellData(ObjLbSheet,LogicRwNmb,GlobalV.FindMethod);
+		}
+	return LocatorType;
+	}
+
+	public static void Getxpath(String Locatertype)
+	{
+		switch(Locatertype)
+		{
+		case "EVALUATEID":
+		{	
+			
+		}
+		}
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

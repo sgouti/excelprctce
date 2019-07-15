@@ -23,9 +23,7 @@ public class Exceltestng {
 	//	D.getdata();1
 	//	DataDriven.ExecutFnctn("Sid","");
 		//DataDriven.ExecutableTStCntrl("TestCntrl");
-		String[] temp1=DataDriven.paramdata("Keyword","TestCase",101,8);
-		
-		System.out.println(temp1.length);
+	
 	
 	}
 	//to Get specific sheet
