@@ -129,17 +129,23 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 	String para="#";
 	int cnt=0;
 	String[] temp;
+	String Kywrdparavlue=null;
+	Row row= KywrdShnme.getRow(KywrdRW);
 	for(int i=0;i<=9;i++)
 	{
 		String parav="Parameter"+(i+1);
-		String Kywrdparavlue=CellData(KywrdShnme,30,parav);
-		System.out.println(Kywrdparavlue);
-		//String TcscrptParaVlue=CellData(TCscrptShnme,TCsrptRw,Kywrdparavlue);
-	//	para=TcscrptParaVlue+"~";
-		System.out.println(para);
+		Kywrdparavlue=CellData(KywrdShnme,KywrdRW,parav);
+		if(!Kywrdparavlue.isEmpty()&&Kywrdparavlue!=null)
+		{
+		String TcscrptParaVlue=CellData(TCscrptShnme,TCsrptRw,Kywrdparavlue);
+		System.out.println(TcscrptParaVlue);
+		if(!TcscrptParaVlue.isEmpty()&&TcscrptParaVlue!=null)
+		{
+		para=para+TcscrptParaVlue+"~";
+		}
+		}
 	}
 	temp=para.replaceAll("#","").split("~");
-	
 	return temp;
 }
 	
@@ -322,10 +328,19 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 		
 		int HeadrsNmr = Hdrcnt(shtNme,ColumnNme);
 		Row Rowvlue=shtNme.getRow(RownNumbr);
-		String Datavlue=Rowvlue.getCell(HeadrsNmr).getStringCellValue();
-		return Datavlue;
+		String Datavlue=null;
+		if(Rowvlue.getCell(HeadrsNmr)!=null)
+		{
+			 Datavlue=Rowvlue.getCell(HeadrsNmr).getStringCellValue();
+			return Datavlue;
+			
+		}
+		else
+		{
+			return "";
+			
+		}
 		
-
 	}
 
 }

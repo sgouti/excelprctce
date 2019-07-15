@@ -23,11 +23,10 @@ public class Exceltestng {
 	//	D.getdata();1
 	//	DataDriven.ExecutFnctn("Sid","");
 		//DataDriven.ExecutableTStCntrl("TestCntrl");
-		String[] temp1=DataDriven.paramdata("Keyword","TestCase",40,20);
-		for(String s:temp1)
-		{
-			System.out.println(s);
-		}
+		String[] temp1=DataDriven.paramdata("Keyword","TestCase",101,8);
+		
+		System.out.println(temp1.length);
+	
 	}
 	//to Get specific sheet
 			public static Sheet Sheetnme(XSSFWorkbook Wrkbk)
