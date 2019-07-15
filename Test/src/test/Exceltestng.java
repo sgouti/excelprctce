@@ -22,7 +22,12 @@ public class Exceltestng {
 	//	DataDriven D=new DataDriven();
 	//	D.getdata();1
 	//	DataDriven.ExecutFnctn("Sid","");
-		DataDriven.ExecutableTStCntrl("TestCntrl");
+		//DataDriven.ExecutableTStCntrl("TestCntrl");
+		String[] temp1=DataDriven.paramdata("Keyword","TestCase",40,20);
+		for(String s:temp1)
+		{
+			System.out.println(s);
+		}
 	}
 	//to Get specific sheet
 			public static Sheet Sheetnme(XSSFWorkbook Wrkbk)

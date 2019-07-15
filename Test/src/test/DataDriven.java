@@ -122,7 +122,26 @@ public class DataDriven {
 	
 	
 	
+public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdRW,int TCsrptRw) throws IOException
+{
+	Sheet KywrdShnme= Sheetnme(Kywrdshnme, "");
+	Sheet TCscrptShnme= Sheetnme(TCSrptShnme, "");
+	String para="#";
+	int cnt=0;
+	String[] temp;
+	for(int i=0;i<=9;i++)
+	{
+		String parav="Parameter"+(i+1);
+		String Kywrdparavlue=CellData(KywrdShnme,30,parav);
+		System.out.println(Kywrdparavlue);
+		//String TcscrptParaVlue=CellData(TCscrptShnme,TCsrptRw,Kywrdparavlue);
+	//	para=TcscrptParaVlue+"~";
+		System.out.println(para);
+	}
+	temp=para.replaceAll("#","").split("~");
 	
+	return temp;
+}
 	
 	
 	
