@@ -19,10 +19,10 @@ public class Exceltestng {
 		//XSSFWorkbook Wrkbk=new XSSFWorkbook(file);
 	//	Sheet ShtNme=Sheetnme(Wrkbk);
 		//ClmnHdr(ShtNme,"name");
-	//	DataDriven D=new DataDriven();
+		DataDriven D=new DataDriven();
 	//	D.getdata();1
 	//	DataDriven.ExecutFnctn("Sid","");
-		//DataDriven.ExecutableTStCntrl("TestCntrl");
+		DataDriven.ExecutableTStCntrl("TestCntrl");
 	
 	
 	}

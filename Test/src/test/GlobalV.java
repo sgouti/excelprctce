@@ -11,6 +11,8 @@ public class GlobalV {
 	public static String Browser;
 	public static int ExcutableRWNmbr;
 	public static ArrayList<String> ExecutableRowValue=new ArrayList<String>();
+	public static int TcsrtRw=0;
+	public static int KywrdtRw=0;
 	
 	
 		//HeadersNme

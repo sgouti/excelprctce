@@ -40,6 +40,7 @@ public class DataDriven {
 			
 			Sheet TestCntrlSheet = Sheetnme(Shtnme, "");
 			ArrayList<String> ExecutableTstCases = ExecutableTestIDs(TestCntrlSheet, GlobalV.TestCaseID, GlobalV.Run);
+				
 			for(int i=0;i<ExecutableTstCases.size();i++)
 			{
 			int TCROwNmbr=RowNumbr(TestCntrlSheet,GlobalV.TestCaseID,ExecutableTstCases.get(i));
@@ -64,17 +65,25 @@ public class DataDriven {
 		Sheet TestCntrlSheet = Sheetnme(ShtNme, "");
 		ArrayList<String> ExecutableFnNme = new ArrayList<String>();
 		ArrayList<Integer> RowsNumbrs = ExcutbleRows(TestCntrlSheet, GlobalV.TestCaseID,TestCaseID, GlobalV.Execute);
-		System.out.println("Script Rows ID  "+RowsNumbrs);
 		
+		if(!RowsNumbrs.isEmpty())
+		{
+			System.out.println("Script Rows ID  "+RowsNumbrs);
 		for(int i=0;i<RowsNumbrs.size();i++)
 		{
+			GlobalV.TcsrtRw=RowsNumbrs.get(i);
 			ExecutableFnNme.add(CellData(TestCntrlSheet,RowsNumbrs.get(i),GlobalV.FunctionName));
 			String FunctionNme=CellData(TestCntrlSheet,RowsNumbrs.get(i),GlobalV.FunctionName);
 			System.out.println("Function Nme executing _" + FunctionNme);
 			Keyword(GlobalV.KeywordLibraryFilePath,FunctionNme);
 		}
 	System.out.println("FunctionNames"+ExecutableFnNme);
-	
+		}
+		else
+		{
+			ReportLog.GetInstance().log(LogStatus.SKIP,"","Don't have any test cases");
+			System.out.println(" ******** Please add Test script before running****** ");
+		}
 	
 	}
 	
@@ -82,20 +91,27 @@ public class DataDriven {
 	{
 		Sheet KeywrdSheet=Sheetnme(ShtNme, "");
 		ArrayList<Integer> RowsNumbrs = ExcutbleRows(KeywrdSheet, GlobalV.FunctionName,FunctNme, GlobalV.Execute);
-		System.out.println("Keywordscripts No.-"+RowsNumbrs);
 		
-		for(int i=0;i<RowsNumbrs.size();i++)
+		if(!RowsNumbrs.isEmpty())
 		{
+			System.out.println("Keywordscripts No.-"+RowsNumbrs);
+		for(int i=0;i<RowsNumbrs.size();i++)
+		{	GlobalV.KywrdtRw=RowsNumbrs.get(i);
 			String Description=CellData(KeywrdSheet,RowsNumbrs.get(i),GlobalV.StepDescription);
 			String ActionKyrd=CellData(KeywrdSheet,RowsNumbrs.get(i),GlobalV.ActionOrKeyword);
 			String LogicalNme=CellData(KeywrdSheet,RowsNumbrs.get(i),GlobalV.ObjectLogicalName);
-			ReportLog.GetInstance().log(LogStatus.INFO,ActionKyrd,Description);
-			
-			
+			ReportLog.GetInstance().log(LogStatus.PASS,ActionKyrd,Description);
+			String[] ParaDetails=paramdata(GlobalV.KeywordLibraryFilePath,GlobalV.TestCaseFilePath,GlobalV.KywrdtRw,GlobalV.TcsrtRw);
+						
 		System.out.println((i+1)+" )  "+Description+" :: "+ActionKyrd+" :: " + LogicalNme);
+		System.out.println("Paramadetails:-"+ ParaDetails.length+ " name "+ ParaDetails[0]);
 		}
 		
-	
+		}
+		else
+		{	ReportLog.GetInstance().log(LogStatus.WARNING,"","Don't have any Keywords");
+			System.out.println(" ******** Please add Keywords before running********* ");
+		}
 	}
 	public static void ExecutFnctn(String FunctNme,String Para) {
 		try {
@@ -136,7 +152,7 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 		if(!Kywrdparavlue.isEmpty()&&Kywrdparavlue!=null)
 		{
 		String TcscrptParaVlue=CellData(TCscrptShnme,TCsrptRw,Kywrdparavlue);
-		System.out.println(TcscrptParaVlue);
+		//System.out.println(TcscrptParaVlue);
 		if(!TcscrptParaVlue.isEmpty()&&TcscrptParaVlue!=null)
 		{
 		para=para+TcscrptParaVlue+"~";
@@ -262,9 +278,8 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 				while (Row1.getCell(Hdr).getStringCellValue().equalsIgnoreCase(TCIDHdr)) {
 					break Demo;
 				}
-
-				if (Row1.getCell(Hdr).getCellType() == CellType.STRING
-						& (Row1.getCell(StatusNmr).toString().equalsIgnoreCase("Yes")
+				
+				if (Row1.getCell(Hdr).getCellType() == CellType.STRING & (Row1.getCell(StatusNmr).toString().equalsIgnoreCase("Yes")
 								|| Row1.getCell(StatusNmr).toString().equalsIgnoreCase("Ys"))) {
 					RowVlue.add(Row1.getCell(Hdr).getStringCellValue());
 				} else if ((Row1.getCell(StatusNmr).toString().equalsIgnoreCase("Yes")
