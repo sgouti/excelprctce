@@ -53,7 +53,6 @@ public class DataDriven {
 			AfterSuit();
 			}
 			
-			
 
 		} catch (IOException e) {
 			System.out.println("Error is :-" + e);
@@ -105,6 +104,8 @@ public class DataDriven {
 						
 		System.out.println((i+1)+" )  "+Description+" :: "+ActionKyrd+" :: " + LogicalNme);
 		System.out.println("Paramadetails:-"+ ParaDetails.length+ " name "+ ParaDetails[0]);
+		String pathNme=pthlocator(GlobalV.ObjectRepositoryFilePath,"LoginPage_UserIDTxtBx");
+		System.out.println("pathnme details is "+ pathNme);
 		}
 		
 		}

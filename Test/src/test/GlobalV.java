@@ -41,7 +41,7 @@ public class GlobalV {
      public static String TestDataFilePath;
      public static String TestCaseFilePath="TestCase";
      public static String KeywordLibraryFilePath="Keyword";
-     public static String ObjectRepositoryFilePath;
+     public static String ObjectRepositoryFilePath="ObjectLb";
 
 
 	
