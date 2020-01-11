@@ -172,6 +172,7 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 		{
 			LogicRwNmb=	RowNumbr(ObjLbSheet,GlobalV.LogicalName,LogicNme);
 			 LocatorType=CellData(ObjLbSheet,LogicRwNmb,GlobalV.FindMethod);
+			 
 		}
 	return LocatorType;
 	}
@@ -188,12 +189,6 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 	}
 	
 
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -361,6 +356,8 @@ public static String[] paramdata(String Kywrdshnme,String TCSrptShnme,int KywrdR
 		String Datavlue=null;
 		if(Rowvlue.getCell(HeadrsNmr)!=null)
 		{
+			
+			
 			 Datavlue=Rowvlue.getCell(HeadrsNmr).getStringCellValue();
 			return Datavlue;
 			

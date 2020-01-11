@@ -81,13 +81,13 @@ else
 	}
 	
 	
-	public static int fibonacci(int number){
+	protected static int fibonacci(int number){
         if(number == 1 || number == 2){
-          // System.out.println(1+ " ");
+           System.out.println(1+ " ");
         	return 1;
         }
       System.out.println();
-       // System.out.println(fibonacci(number-1) + fibonacci(number -2));
+       System.out.println(fibonacci(number-1) + fibonacci(number -2));
         return fibonacci(number-1) + fibonacci(number -2); //tail recursion
         
     }
@@ -129,3 +129,4 @@ else
 		System.out.println("Tested completed");
 	}
 }
+
